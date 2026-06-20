@@ -93,11 +93,60 @@ TIKTOK
 </a>
 <button class="contact-toggle">CONTACT</button>
 
+<!-- CONTACT BUTTON + BOX + STYLE + SCRIPT -->
+<style>
+.contact-toggle{
+    display:block;
+    width:100%;
+    background:white;
+    color:black;
+    padding:16px;
+    margin:12px 0;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    border:none;
+    transition:0.3s;
+}
+
+.contact-toggle:hover{
+    transform:scale(1.03);
+}
+
+.contact-box{
+    display:none;
+    background:rgba(0,0,0,0.65);
+    color:white;
+    padding:20px;
+    border-radius:12px;
+    margin-top:10px;
+    text-align:left;
+}
+
+.contact-box a{
+    color:#ffd966;
+    font-weight:bold;
+}
+</style>
+
+<button class="contact-toggle">CONTACT</button>
+
 <div class="contact-box">
     <h2>Booking:</h2>
-    <p>456 Booking<br>
-    Joseph Joachimsthaler<br>
-    Mail: <a href="mailto:info@joschi-joachimsthaler.com">info@joschi-joachimsthaler.com</a></p>
+    <p>
+        456 Booking<br>
+        Joseph Joachimsthaler<br>
+        Mail: <a href="mailto:info@joschi-joachimsthaler.com">info@joschi-joachimsthaler.com</a>
+    </p>
+</div>
+
+<script>
+document.querySelector('.contact-toggle').addEventListener('click', function(){
+    const box = document.querySelector('.contact-box');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+});
+</script>
+
 </div>
 
 </div>
