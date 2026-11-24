@@ -1,224 +1,329 @@
-```html
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Y2K</title>
+<title>Y2K - Band</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: Arial, sans-serif;
-    min-height:100vh;
-
-    /* Bandfoto */
+    min-height: 100vh;
     background-image: url('https://y2k-band.de/bandfoto.jpeg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
 }
 
-.overlay{
-    background:rgba(0,0,0,0.65);
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    width:90%;
-    max-width:500px;
+/* TITEL */
+header {
+    padding: 45px 20px 30px;
+    text-shadow: 2px 2px 8px black;
 }
 
-h1{
-    color:white;
-    margin-bottom:30px;
-    font-size:3rem;
+h1 {
+    font-size: 5rem;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
 }
 
-.link{
-    display:block;
-    text-decoration:none;
-    background:white;
-    color:black;
-    padding:16px;
-    margin:12px 0;
-    border-radius:12px;
-    font-weight:bold;
-    transition:0.3s;
+.subtitle {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
-.link:hover{
-    transform:scale(1.03);
+/* BUTTONS OBEN */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(8px);
 }
 
-/* BANDINFO Button */
-.bandinfo-toggle{
-    display:block;
-    width:100%;
-    background:white;
-    color:black;
-    padding:16px;
-    margin:12px 0;
-    border-radius:12px;
-    font-weight:bold;
-    cursor:pointer;
-    border:none;
-    transition:0.3s;
+.link {
+    display: inline-block;
+    text-decoration: none;
+    background: white;
+    color: black;
+    padding: 13px 19px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-.bandinfo-toggle:hover{
-    transform:scale(1.03);
+.link:hover {
+    transform: scale(1.05);
+    background: #ddd;
 }
 
-/* BANDINFO Box */
-.bandinfo-box{
-    display:none;
-    background:rgba(0,0,0,0.65);
-    color:white;
-    padding:20px;
-    border-radius:12px;
-    margin-top:10px;
-    text-align:left;
-    line-height:1.6;
+/* VIDEO */
+.video-container {
+    width: 90%;
+    max-width: 850px;
+    margin: 35px auto 60px;
+    aspect-ratio: 16 / 9;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
-.bandinfo-box h2{
-    margin-bottom:15px;
-    text-align:center;
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-.bandinfo-box p{
-    margin-bottom:18px;
+/* INHALTSBEREICHE */
+section {
+    width: 90%;
+    max-width: 850px;
+    margin: 65px auto;
+    padding: 25px 20px;
+    scroll-margin-top: 100px;
+    text-shadow: 2px 2px 5px black;
 }
 
-/* CONTACT Button */
-.contact-toggle{
-    display:block;
-    width:100%;
-    background:white;
-    color:black;
-    padding:16px;
-    margin:12px 0;
-    border-radius:12px;
-    font-weight:bold;
-    cursor:pointer;
-    border:none;
-    transition:0.3s;
+section h2 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
 }
 
-.contact-toggle:hover{
-    transform:scale(1.03);
+section p {
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-size: 1.05rem;
 }
 
-/* CONTACT Box */
-.contact-box{
-    display:none;
-    background:rgba(0,0,0,0.65);
-    color:white;
-    padding:20px;
-    border-radius:12px;
-    margin-top:10px;
-    text-align:left;
+/* SCHWARZE KÄSTEN */
+.content-box {
+    background: rgba(0,0,0,0.72);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
 }
 
-.contact-box a{
-    color:#ffd966;
-    font-weight:bold;
+.content-box h2 {
+    text-align: center;
 }
 
+/* LIVE */
+#live p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* KONTAKT */
+.contact-link {
+    color: #ffd966;
+    font-weight: bold;
+}
+
+/* SMARTPHONE */
+@media (max-width: 600px) {
+    header {
+        padding-top: 35px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    nav {
+        gap: 8px;
+        padding: 12px 8px;
+    }
+
+    .link {
+        padding: 11px 13px;
+        font-size: 0.8rem;
+    }
+
+    section {
+        margin: 45px auto;
+        padding: 20px 10px;
+    }
+
+    .content-box {
+        padding: 22px 18px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="overlay">
+<!-- TITEL UND UNTERTITEL -->
+<header>
+    <h1>Y2K - Band</h1>
 
-<h1>Y2K BAND Link Tree</h1>
+    <div class="subtitle">
+        Tony Hawk's Pro Skater Tribute und Alternative Rock
+    </div>
+</header>
+
+<!-- BUTTONS -->
+<nav>
+
+    <a class="link" href="#live">LIVE</a>
+
+    <a class="link" href="#bandinfo">BANDINFO</a>
+
+    <a class="link"
+       href="https://www.youtube.com/@Y2K-Band"
+       target="_blank">
+       YOUTUBE KANAL
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/watch?v=nCjCam-InZE"
+       target="_blank">
+       SHOW REEL
+    </a>
+
+    <a class="link"
+       href="https://www.youtube.com/playlist?list=PLX8ohsa8Eu4I"
+       target="_blank">
+       LIVE VIDEOS
+    </a>
+
+    <a class="link"
+       href="https://www.instagram.com/y2kband_"
+       target="_blank">
+       INSTAGRAM
+    </a>
+
+    <a class="link"
+       href="https://www.tiktok.com/@y2kband_"
+       target="_blank">
+       TIKTOK
+    </a>
+
+    <a class="link" href="#booking">BOOKING</a>
+
+</nav>
+
+<!-- SHOW REEL VIDEO -->
+<div class="video-container">
+
+    <iframe
+        src="https://www.youtube.com/embed/nCjCam-InZE"
+        title="Y2K Show Reel"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+</div>
 
 <!-- BANDINFO -->
-<button class="bandinfo-toggle">BANDINFO</button>
+<section id="bandinfo">
 
-<div class="bandinfo-box">
+    <div class="content-box">
 
-    <h2>Y2K - Tony Hawks Pro Skater Soundtrack und Alternative Rock</h2>
+        <h2>BANDINFO</h2>
 
-    <p>
-        Es ist Wochenende, irgendwann Anfang der 2000er. Die Welt ist nicht am Y2K Bug zugrunde gegangen und du hängst mit ein paar Freunden in deinem Kinderzimmer ab. Ihr bestellt ne Pizza, macht ein koffeinhaltiges Erfrischungsgetränk auf, schmeißt die Playsi an und fangt an ein gewisses Skateboard Spiel zu spielen. Dabei haut euch der Soundtrack des Spiels das komplette Hirn aus dem Schädel und dieser Soundtrack wir ab jetzt eure Jugend prägen.
-    </p>
+        <p>
+            Es ist Wochenende, irgendwann Anfang der 2000er. Die Welt ist
+            nicht am Y2K Bug zugrunde gegangen und du hängst mit ein paar
+            Freunden in deinem Kinderzimmer ab. Ihr bestellt ne Pizza,
+            macht ein koffeinhaltiges Erfrischungsgetränk auf, schmeißt
+            die Playsi an und fangt an ein gewisses Skateboard Spiel zu
+            spielen. Dabei haut euch der Soundtrack des Spiels das
+            komplette Hirn aus dem Schädel und dieser Soundtrack wird
+            ab jetzt eure Jugend prägen.
+        </p>
 
-    <p>
-        Erinnerungen geweckt?
-    </p>
+        <p>Erinnerungen geweckt?</p>
 
-    <p>
-        Jetzt stell dir vor, du könntest dir diese Ansammlung an Hirnwegfegern live, im Hier und Jetzt ins Gesicht ballern lassen.
-    </p>
+        <p>
+            Jetzt stell dir vor, du könntest dir diese Ansammlung an
+            Hirnwegfegern live, im Hier und Jetzt ins Gesicht ballern lassen.
+        </p>
 
-    <p>
-        Denn genau da kommen „Y2K“ ins Spiel (höhö).
-    </p>
+        <p>
+            Denn genau da kommen „Y2K“ ins Spiel (höhö).
+        </p>
 
-    <p>
-        Joschi Joachimsthaler, Jakob Winterstein und Simon Weber starten rein in ihre early Midlife Crisis und spielen Songs die prägend für diese intensive Zeit waren. Neben vielen THPS-Klassikern erwarten euch viele weitere Songs des Alternative Rock aus dieser Zeit. Mit dabei u.a. Goldfinger, Foo Fighters, Incubus, Lagwagon, Bad Religion, Papa Roach, Rage Against the Machine, Millencolin, Guano Apes, Living Colour uvm. Wer Bock auf Fischaugen Feeling, Baggypants und Shirt über Longsleeve hat, sollte sich das nicht entgehen lassen.
-    </p>
+        <p>
+            Joschi Joachimsthaler, Jakob Winterstein und Simon Weber
+            starten rein in ihre early Midlife Crisis und spielen Songs,
+            die prägend für diese intensive Zeit waren. Neben vielen
+            THPS-Klassikern erwarten euch viele weitere Songs des
+            Alternative Rock aus dieser Zeit. Mit dabei u.a. Goldfinger,
+            Foo Fighters, Incubus, Lagwagon, Bad Religion, Papa Roach,
+            Rage Against the Machine, Millencolin, Guano Apes,
+            Living Colour uvm. Wer Bock auf Fischaugen Feeling,
+            Baggypants und Shirt über Longsleeve hat, sollte sich
+            das nicht entgehen lassen.
+        </p>
 
-</div>
+    </div>
 
-<!-- LINKS -->
+</section>
 
-<a class="link" href="https://www.youtube.com/@Y2K-Band" target="_blank">YOUTUBE KANAL</a>
+<!-- LIVE -->
+<section id="live">
 
-<a class="link" href="https://www.youtube.com/watch?v=nCjCam-InZE" target="_blank">SHOW REEL VIDEO</a>
+    <h2>LIVE</h2>
 
-<a class="link" href="https://www.youtube.com/playlist?list=PLX8ohsa8Eu4I" target="_blank">LIVE VIDEOS</a>
+    <p>Termine 2027 folgen</p>
 
-<a class="link" href="https://www.instagram.com/y2kband_" target="_blank">INSTAGRAM</a>
+</section>
 
-<a class="link" href="https://www.tiktok.com/@y2kband_" target="_blank">TIKTOK</a>
+<!-- BOOKING -->
+<section id="booking">
 
-<!-- CONTACT -->
-<button class="contact-toggle">BOOKING/CONTACT</button>
+    <div class="content-box">
 
-<div class="contact-box">
+        <h2>BOOKING / CONTACT</h2>
 
-    <h2>Booking:</h2>
+        <p>
+            456 Booking<br>
+            Joschi Joachimsthaler
+        </p>
 
-    <p>
-        456 Booking<br>
-        Joschi Joachimsthaler<br>
-        Mail: <a href="mailto:info@joschi-joachimsthaler.com">info@joschi-joachimsthaler.com</a>
-    </p>
+        <p>
+            Mail:
+            <a class="contact-link"
+               href="mailto:info@joschi-joachimsthaler.com">
+               info@joschi-joachimsthaler.com
+            </a>
+        </p>
 
-</div>
+    </div>
 
-</div>
-
-<script>
-
-/* BANDINFO auf-/zuklappen */
-document.querySelector('.bandinfo-toggle').addEventListener('click', function(){
-    const box = document.querySelector('.bandinfo-box');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-});
-
-/* BOOKING/CONTACT auf-/zuklappen */
-document.querySelector('.contact-toggle').addEventListener('click', function(){
-    const box = document.querySelector('.contact-box');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-});
-
-</script>
+</section>
 
 </body>
 </html>
-```
