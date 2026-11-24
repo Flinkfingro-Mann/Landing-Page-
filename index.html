@@ -60,6 +60,46 @@ h1{
     transform:scale(1.03);
 }
 
+/* BANDINFO Button */
+.bandinfo-toggle{
+    display:block;
+    width:100%;
+    background:white;
+    color:black;
+    padding:16px;
+    margin:12px 0;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    border:none;
+    transition:0.3s;
+}
+
+.bandinfo-toggle:hover{
+    transform:scale(1.03);
+}
+
+/* BANDINFO Box */
+.bandinfo-box{
+    display:none;
+    background:rgba(0,0,0,0.65);
+    color:white;
+    padding:20px;
+    border-radius:12px;
+    margin-top:10px;
+    text-align:left;
+    line-height:1.6;
+}
+
+.bandinfo-box h2{
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.bandinfo-box p{
+    margin-bottom:18px;
+}
+
 /* CONTACT Button */
 .contact-toggle{
     display:block;
@@ -83,7 +123,7 @@ h1{
 .contact-box{
     display:none;
     background:rgba(0,0,0,0.65);
-    color:white; /* <-- WEISSE SCHRIFT */
+    color:white;
     padding:20px;
     border-radius:12px;
     margin-top:10px;
@@ -104,31 +144,77 @@ h1{
 
 <h1>Y2K BAND Link Tree</h1>
 
+<!-- BANDINFO -->
+<button class="bandinfo-toggle">BANDINFO</button>
+
+<div class="bandinfo-box">
+
+    <h2>Y2K - Tony Hawks Pro Skater Soundtrack und Alternative Rock</h2>
+
+    <p>
+        Es ist Wochenende, irgendwann Anfang der 2000er. Die Welt ist nicht am Y2K Bug zugrunde gegangen und du hängst mit ein paar Freunden in deinem Kinderzimmer ab. Ihr bestellt ne Pizza, macht ein koffeinhaltiges Erfrischungsgetränk auf, schmeißt die Playsi an und fangt an ein gewisses Skateboard Spiel zu spielen. Dabei haut euch der Soundtrack des Spiels das komplette Hirn aus dem Schädel und dieser Soundtrack wir ab jetzt eure Jugend prägen.
+    </p>
+
+    <p>
+        Erinnerungen geweckt?
+    </p>
+
+    <p>
+        Jetzt stell dir vor, du könntest dir diese Ansammlung an Hirnwegfegern live, im Hier und Jetzt ins Gesicht ballern lassen.
+    </p>
+
+    <p>
+        Denn genau da kommen „Y2K“ ins Spiel (höhö).
+    </p>
+
+    <p>
+        Joschi Joachimsthaler, Jakob Winterstein und Simon Weber starten rein in ihre early Midlife Crisis und spielen Songs die prägend für diese intensive Zeit waren. Neben vielen THPS-Klassikern erwarten euch viele weitere Songs des Alternative Rock aus dieser Zeit. Mit dabei u.a. Goldfinger, Foo Fighters, Incubus, Lagwagon, Bad Religion, Papa Roach, Rage Against the Machine, Millencolin, Guano Apes, Living Colour uvm. Wer Bock auf Fischaugen Feeling, Baggypants und Shirt über Longsleeve hat, sollte sich das nicht entgehen lassen.
+    </p>
+
+</div>
+
+<!-- LINKS -->
 <a class="link" href="https://www.youtube.com/@Y2K-Band" target="_blank">YOUTUBE KANAL</a>
+
 <a class="link" href="https://www.youtube.com/watch?v=tGbaeY_XRKE" target="_blank">SHOW REEL VIDEO</a>
+
 <a class="link" href="https://www.eventpeppers.de/y2kband" target="_blank">EVENTPEPPERS</a>
+
 <a class="link" href="https://www.instagram.com/y2kband_" target="_blank">INSTAGRAM</a>
+
 <a class="link" href="https://www.tiktok.com/@y2kband_" target="_blank">TIKTOK</a>
 
+<!-- CONTACT -->
 <button class="contact-toggle">BOOKING/CONTACT</button>
 
 <div class="contact-box">
+
     <h2>Booking:</h2>
+
     <p>
-    
         456 Booking<br>
         Joschi Joachimsthaler<br>
         Mail: <a href="mailto:info@joschi-joachimsthaler.com">info@joschi-joachimsthaler.com</a>
     </p>
+
 </div>
 
 </div>
 
 <script>
+
+/* BANDINFO auf-/zuklappen */
+document.querySelector('.bandinfo-toggle').addEventListener('click', function(){
+    const box = document.querySelector('.bandinfo-box');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+});
+
+/* BOOKING/CONTACT auf-/zuklappen */
 document.querySelector('.contact-toggle').addEventListener('click', function(){
     const box = document.querySelector('.contact-box');
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
 });
+
 </script>
 
 </body>
