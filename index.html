@@ -4,10 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <title>Y2K - Band</title>
 
 <style>
+
+/* GRUNDEINSTELLUNGEN */
 * {
     margin: 0;
     padding: 0;
@@ -16,16 +19,21 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 110px;
 }
 
 body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+
     background-image: url('https://y2k-band.de/bandfoto.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
+
     color: white;
     text-align: center;
 }
@@ -49,30 +57,38 @@ h1 {
     line-height: 1.5;
 }
 
-/* BUTTONS OBEN */
+/* NAVIGATION */
 nav {
     position: sticky;
     top: 0;
     z-index: 100;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+
     padding: 15px 20px;
+
     background: rgba(0,0,0,0.65);
     backdrop-filter: blur(8px);
 }
 
+/* BUTTONS */
 .link {
     display: inline-block;
     text-decoration: none;
+
     background: white;
     color: black;
+
     padding: 13px 19px;
     border-radius: 10px;
+
     font-weight: bold;
     font-size: 0.9rem;
+
     transition: 0.3s;
 }
 
@@ -85,17 +101,22 @@ nav {
 .video-container {
     width: 90%;
     max-width: 850px;
+
     margin: 35px auto 60px;
+
     aspect-ratio: 16 / 9;
+
     background: rgba(0,0,0,0.6);
     border-radius: 15px;
     overflow: hidden;
+
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
 .video-container iframe {
     width: 100%;
     height: 100%;
+    display: block;
     border: none;
 }
 
@@ -103,9 +124,12 @@ nav {
 section {
     width: 90%;
     max-width: 850px;
+
     margin: 65px auto;
     padding: 25px 20px;
-    scroll-margin-top: 100px;
+
+    scroll-margin-top: 110px;
+
     text-shadow: 2px 2px 5px black;
 }
 
@@ -145,51 +169,139 @@ section p {
     font-weight: bold;
 }
 
-/* SMARTPHONE */
-@media (max-width: 600px) {
-    header {
-        padding-top: 35px;
-    }
+/* FUSSZEILE */
+footer {
+    padding: 30px 15px;
+    text-shadow: 2px 2px 5px black;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
 
     h1 {
-        font-size: 3.5rem;
-    }
-
-    .subtitle {
-        font-size: 1rem;
+        font-size: 4rem;
     }
 
     nav {
         gap: 8px;
-        padding: 12px 8px;
+        padding: 12px;
     }
 
     .link {
-        padding: 11px 13px;
-        font-size: 0.8rem;
-    }
-
-    section {
-        margin: 45px auto;
-        padding: 20px 10px;
-    }
-
-    .content-box {
-        padding: 22px 18px;
+        padding: 12px 15px;
     }
 }
+
+/* SMARTPHONE */
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+
+    header {
+        padding: 30px 15px 25px;
+    }
+
+    h1 {
+        font-size: clamp(2.7rem, 12vw, 3.5rem);
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        line-height: 1.5;
+    }
+
+    /* Buttons untereinander */
+    nav {
+        position: sticky;
+        top: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 9px;
+        padding: 12px 20px;
+
+        background: rgba(0,0,0,0.75);
+    }
+
+    .link {
+        display: block;
+        width: 100%;
+
+        padding: 14px 12px;
+
+        font-size: 0.9rem;
+        text-align: center;
+
+        border-radius: 10px;
+    }
+
+    .link:hover {
+        transform: none;
+    }
+
+    /* Video auf Handy */
+    .video-container {
+        width: 94%;
+        margin: 25px auto 40px;
+        border-radius: 10px;
+    }
+
+    /* Inhaltsbereiche */
+    section {
+        width: 94%;
+        margin: 40px auto;
+        padding: 15px 5px;
+        scroll-margin-top: 360px;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    section p {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    /* Schwarze Kästen */
+    .content-box {
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+    /* LIVE */
+    #live p {
+        font-size: 1.1rem;
+    }
+
+    footer {
+        padding: 25px 15px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- TITEL UND UNTERTITEL -->
+<!-- TITEL -->
 <header>
+
     <h1>Y2K - Band</h1>
 
     <div class="subtitle">
         Tony Hawk's Pro Skater Tribute und Alternative Rock
     </div>
+
 </header>
 
 <!-- BUTTONS -->
@@ -201,31 +313,36 @@ section p {
 
     <a class="link"
        href="https://www.youtube.com/@Y2K-Band"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
        YOUTUBE KANAL
     </a>
 
     <a class="link"
        href="https://www.youtube.com/watch?v=nCjCam-InZE"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
        SHOW REEL
     </a>
 
     <a class="link"
        href="https://www.youtube.com/playlist?list=PLX8ohsa8Eu4I"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
        LIVE VIDEOS
     </a>
 
     <a class="link"
        href="https://www.instagram.com/y2kband_"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
        INSTAGRAM
     </a>
 
     <a class="link"
        href="https://www.tiktok.com/@y2kband_"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
        TIKTOK
     </a>
 
