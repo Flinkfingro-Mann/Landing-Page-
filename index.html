@@ -38,16 +38,20 @@ body {
     text-align: center;
 }
 
-/* TITEL */
-header {
-    padding: 45px 20px 30px;
-    text-shadow: 2px 2px 8px black;
+/* BANDLOGO */
+.bandlogo {
+    display: block;
+    width: 90%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto 15px;
+    mix-blend-mode: screen;
 }
 
-h1 {
-    font-size: 5rem;
-    letter-spacing: 6px;
-    margin-bottom: 12px;
+/* TITELBEREICH */
+header {
+    padding: 35px 20px 25px;
+    text-shadow: 2px 2px 8px black;
 }
 
 .subtitle {
@@ -101,9 +105,7 @@ nav {
 .video-container {
     width: 90%;
     max-width: 850px;
-
     margin: 35px auto 60px;
-
     aspect-ratio: 16 / 9;
 
     background: rgba(0,0,0,0.6);
@@ -128,8 +130,7 @@ section {
     margin: 65px auto;
     padding: 25px 20px;
 
-    scroll-margin-top: 110px;
-
+    scroll-margin-top: 100px;
     text-shadow: 2px 2px 5px black;
 }
 
@@ -178,10 +179,6 @@ footer {
 /* TABLET */
 @media (max-width: 900px) {
 
-    h1 {
-        font-size: 4rem;
-    }
-
     nav {
         gap: 8px;
         padding: 12px;
@@ -196,17 +193,21 @@ footer {
 @media (max-width: 600px) {
 
     body {
-        background-attachment: scroll;
+        background-image: url('https://y2k-band.de/bandfoto-handy.jpeg');
+        background-size: cover;
         background-position: center top;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
     }
 
     header {
-        padding: 30px 15px 25px;
+        padding: 25px 15px 20px;
     }
 
-    h1 {
-        font-size: clamp(2.7rem, 12vw, 3.5rem);
-        letter-spacing: 3px;
+    .bandlogo {
+        width: 95%;
+        max-width: 400px;
+        margin-bottom: 12px;
     }
 
     .subtitle {
@@ -215,7 +216,7 @@ footer {
         line-height: 1.5;
     }
 
-    /* Buttons untereinander */
+    /* BUTTONS UNTEREINANDER */
     nav {
         position: sticky;
         top: 0;
@@ -233,12 +234,10 @@ footer {
     .link {
         display: block;
         width: 100%;
-
         padding: 14px 12px;
 
         font-size: 0.9rem;
         text-align: center;
-
         border-radius: 10px;
     }
 
@@ -246,14 +245,14 @@ footer {
         transform: none;
     }
 
-    /* Video auf Handy */
+    /* VIDEO AUF HANDY */
     .video-container {
         width: 94%;
         margin: 25px auto 40px;
         border-radius: 10px;
     }
 
-    /* Inhaltsbereiche */
+    /* INHALTSBEREICHE */
     section {
         width: 94%;
         margin: 40px auto;
@@ -272,13 +271,11 @@ footer {
         line-height: 1.65;
     }
 
-    /* Schwarze Kästen */
     .content-box {
         padding: 22px 18px;
         border-radius: 12px;
     }
 
-    /* LIVE */
     #live p {
         font-size: 1.1rem;
     }
@@ -293,10 +290,14 @@ footer {
 
 <body>
 
-<!-- TITEL -->
+<!-- LOGO UND UNTERZEILE -->
 <header>
 
-    <h1>Y2K - Band</h1>
+    <img
+        src="https://y2k-band.de/bandlogo.png"
+        alt="Y2K Band Logo"
+        class="bandlogo"
+    >
 
     <div class="subtitle">
         Tony Hawk's Pro Skater Tribute und Alternative Rock
