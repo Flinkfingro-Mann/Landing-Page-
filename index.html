@@ -10,7 +10,8 @@
 
 <style>
 
-/* GRUNDEINSTELLUNGEN */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -27,38 +28,52 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
-
     background-image: url('https://y2k-band.de/bandfoto.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-
     color: white;
     text-align: center;
+}
+
+/* TITELBEREICH */
+header {
+    position: relative;
+    isolation: isolate;
+    padding: 28px 20px 25px;
+    text-shadow: 2px 2px 8px black;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: rgba(0,0,0,0.68);
 }
 
 /* BANDLOGO */
 .bandlogo {
     display: block;
-    width: 90%;
-    max-width: 520px;
+    width: 78%;
+    max-width: 430px;
     height: auto;
-    margin: 0 auto 15px;
+    margin: 0 auto -8px;
     mix-blend-mode: screen;
 }
 
-/* TITELBEREICH */
-header {
-    padding: 35px 20px 25px;
-    text-shadow: 2px 2px 8px black;
-}
-
+/* UNTERTITEL */
 .subtitle {
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    font-weight: bold;
-    line-height: 1.5;
+    font-family: 'Rajdhani', Arial, sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-top: -8px;
+    text-shadow: 2px 2px 5px black;
 }
 
 /* NAVIGATION */
@@ -66,39 +81,38 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-
-    padding: 15px 20px;
-
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(8px);
+    gap: 9px;
+    padding: 13px 20px;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 /* BUTTONS */
 .link {
     display: inline-block;
     text-decoration: none;
-
-    background: white;
-    color: black;
-
-    padding: 13px 19px;
-    border-radius: 10px;
-
-    font-weight: bold;
-    font-size: 0.9rem;
-
-    transition: 0.3s;
+    background: #111;
+    color: white;
+    padding: 11px 19px;
+    border-radius: 3px;
+    font-family: 'Rajdhani', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(255,255,255,0.65);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .link:hover {
-    transform: scale(1.05);
-    background: #ddd;
+    background: #f15a24;
+    color: #111;
+    border-color: #f15a24;
 }
 
 /* VIDEO */
@@ -107,11 +121,9 @@ nav {
     max-width: 850px;
     margin: 35px auto 60px;
     aspect-ratio: 16 / 9;
-
     background: rgba(0,0,0,0.6);
-    border-radius: 15px;
+    border-radius: 8px;
     overflow: hidden;
-
     box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
@@ -126,21 +138,23 @@ nav {
 section {
     width: 90%;
     max-width: 850px;
-
     margin: 65px auto;
     padding: 25px 20px;
-
     scroll-margin-top: 100px;
     text-shadow: 2px 2px 5px black;
 }
 
 section h2 {
+    font-family: 'Rajdhani', Arial, sans-serif;
     font-size: 2rem;
-    letter-spacing: 3px;
+    font-weight: 800;
+    letter-spacing: 2px;
     margin-bottom: 25px;
 }
 
+/* BANDINFO UND INHALTSBEREICHE */
 section p {
+    font-family: Arial, sans-serif;
     line-height: 1.7;
     margin-bottom: 18px;
     font-size: 1.05rem;
@@ -150,7 +164,7 @@ section p {
 .content-box {
     background: rgba(0,0,0,0.72);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: 8px;
     text-align: left;
 }
 
@@ -160,13 +174,14 @@ section p {
 
 /* LIVE */
 #live p {
+    font-family: Arial, sans-serif;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
 /* KONTAKT */
 .contact-link {
-    color: #ffd966;
+    color: #ff8a4c;
     font-weight: bold;
 }
 
@@ -178,14 +193,13 @@ footer {
 
 /* TABLET */
 @media (max-width: 900px) {
-
     nav {
         gap: 8px;
         padding: 12px;
     }
 
     .link {
-        padding: 12px 15px;
+        padding: 11px 15px;
     }
 }
 
@@ -201,58 +215,52 @@ footer {
     }
 
     header {
-        padding: 25px 15px 20px;
+        padding: 22px 15px 20px;
+    }
+
+    header::before {
+        background: rgba(0,0,0,0.72);
     }
 
     .bandlogo {
-        width: 95%;
-        max-width: 400px;
-        margin-bottom: 12px;
+        width: 88%;
+        max-width: 360px;
+        margin-bottom: -8px;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 1.05rem;
         letter-spacing: 1px;
-        line-height: 1.5;
+        line-height: 1.15;
+        margin-top: -8px;
     }
 
-    /* BUTTONS UNTEREINANDER */
     nav {
         position: sticky;
         top: 0;
-
         display: flex;
         flex-direction: column;
         align-items: stretch;
-
-        gap: 9px;
+        gap: 8px;
         padding: 12px 20px;
-
-        background: rgba(0,0,0,0.75);
+        background: rgba(0,0,0,0.82);
     }
 
     .link {
         display: block;
         width: 100%;
-        padding: 14px 12px;
-
-        font-size: 0.9rem;
+        padding: 12px;
+        font-size: 1rem;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 3px;
     }
 
-    .link:hover {
-        transform: none;
-    }
-
-    /* VIDEO AUF HANDY */
     .video-container {
         width: 94%;
         margin: 25px auto 40px;
-        border-radius: 10px;
+        border-radius: 6px;
     }
 
-    /* INHALTSBEREICHE */
     section {
         width: 94%;
         margin: 40px auto;
@@ -267,16 +275,18 @@ footer {
     }
 
     section p {
+        font-family: Arial, sans-serif;
         font-size: 1rem;
         line-height: 1.65;
     }
 
     .content-box {
         padding: 22px 18px;
-        border-radius: 12px;
+        border-radius: 6px;
     }
 
     #live p {
+        font-family: Arial, sans-serif;
         font-size: 1.1rem;
     }
 
@@ -294,7 +304,7 @@ footer {
 <header>
 
     <img
-        src="https://y2k-band.de/bandlogo.PNG"
+        src="https://y2k-band.de/bandlogo2.PNG"
         alt="Y2K Band Logo"
         class="bandlogo"
     >
